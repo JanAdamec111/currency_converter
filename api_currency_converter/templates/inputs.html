@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <h2 style="text-align:center">CURR<span style="bold;color:rgb(138, 138, 40)">€</span>NCY
+        CONV<span style="color:rgb(138, 138, 40)">€</span>RT<span style="color:rgb(138, 138, 40)">€</span>R</h2>
+    <h4 style="text-align:center">Please select amount and currencies for exchange.</h4>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p style="text-align:center">
+            {{ form.amount.label }}<br>
+            {{ form.amount(size=20) }}
+            {% for error in form.amount.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p style="text-align:center">
+            {{ form.input_currency.label }}<br>
+            {{ form.input_currency(size=20) }}
+            {% for error in form.input_currency.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p style="text-align:center">
+            {{ form.output_currency.label }}<br>
+            {{ form.output_currency(size=20) }}
+            {% for error in form.output_currency.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p style="text-align:center">
+            {{ form.submit }}
+        </p>
+    </form>
+    <p style="text-align:center">
+        <font size="2">* If empty, you will be shown all exchange rates.</font>
+    </p>
+
+{% endblock %}
